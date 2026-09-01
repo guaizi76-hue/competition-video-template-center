@@ -126,7 +126,17 @@ body { color: #fff; background: #050b20; font-family: var(--ui); }
 .editor-field { display:grid; gap:5px; margin:0 0 10px; }.editor-field > span { color:rgba(255,255,255,.73); font-size:12px; }.editor-field input, .editor-field textarea { width:100%; padding:8px 9px; border:1px solid rgba(255,255,255,.18); border-radius:7px; outline:none; color:#fff; background:rgba(255,255,255,.08); font:13px var(--ui); }.editor-field textarea { min-height:58px; resize:vertical; }.editor-field input[type="color"] { height:34px; padding:3px; }.editor-color-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }.editor-tip { margin:3px 0 10px; color:rgba(255,255,255,.53); font-size:11px; line-height:1.5; }.editor-upload { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:7px; color:rgba(255,255,255,.78); font-size:12px; }.editor-upload input { width:180px; color:rgba(255,255,255,.7); font-size:11px; }.editor-reset { width:100%; margin-top:7px; padding:9px; border:1px solid rgba(255,255,255,.22); border-radius:7px; color:#fff; background:rgba(255,255,255,.08); font:600 12px var(--ui); cursor:pointer; }
 body.capture .editor-toggle, body.capture .editor-panel { display:none; }
 @media (max-width:700px) { .editor-panel { width:min(342px, calc(100vw - 36px)); } }
-</style>
+
+      /* 模板中心首页需要正常纵向滚动；视频预览页保持固定画布。 */
+      html.template-center-page { height: auto; overflow-y: auto; }
+      html.template-center-page body,
+      html.template-center-page #root {
+        width: auto;
+        height: auto;
+        min-height: 100%;
+        overflow: visible;
+      }
+    </style>
   </head>
   <body>
     <div id="root"></div>
@@ -136,6 +146,7 @@ body.capture .editor-toggle, body.capture .editor-panel { display:none; }
     <script>
       const template = new URLSearchParams(window.location.search).get("template");
       if (template) document.body.dataset.template = template;
+      else document.documentElement.classList.add("template-center-page");
     </script>
     <script>(function () {
   const STORAGE_KEY = "competition-video-template-draft-v1";
