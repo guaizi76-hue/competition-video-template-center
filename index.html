@@ -9,6 +9,7 @@
 * { box-sizing:border-box; } html, body, #root { min-height:100%; margin:0; } body { color:var(--center-ink); background:var(--center-bg); font-family:var(--center-ui); }
 .center-app { min-height:100vh; padding:54px clamp(24px, 5vw, 82px) 70px; background:radial-gradient(circle at 92% 8%, rgba(110,192,238,.27) 0 0, transparent 24%), linear-gradient(130deg, #f5f9fd 0%, #eef4fa 58%, #e1ebf5 100%); }.center-header { display:flex; justify-content:space-between; gap:32px; max-width:1510px; margin:0 auto; }.center-header > div:first-child > span { color:var(--center-blue); font-size:12px; font-weight:820; letter-spacing:.18em; }.center-header h1 { margin:9px 0 10px; font-family:"Songti SC", "STSong", serif; font-size:44px; letter-spacing:-.045em; }.center-header p { margin:0; color:var(--center-muted); font-size:16px; }.center-status { align-self:flex-start; margin-top:12px; padding:9px 13px; border:1px solid #cfdae8; border-radius:999px; color:#267054; background:rgba(255,255,255,.62); font-size:13px; }.center-flow { display:flex; align-items:center; gap:14px; max-width:1510px; margin:34px auto 26px; padding:16px 20px; border:1px solid #dbe4ee; border-radius:12px; color:#55647e; background:rgba(255,255,255,.65); font-size:13px; }.center-flow span:first-child { color:#1b4d9f; font-weight:750; }.center-flow i { width:36px; height:1px; background:#b6c7d9; }
 .center-layout { display:grid; grid-template-columns:minmax(330px, .78fr) minmax(0, 1.22fr); gap:24px; max-width:1510px; margin:0 auto; }.center-form, .center-templates { border:1px solid #d9e3ee; border-radius:16px; background:rgba(255,255,255,.88); box-shadow:0 16px 40px rgba(47,77,112,.08); }.center-form { padding:22px; }.form-intro, .templates-title { display:flex; justify-content:space-between; align-items:flex-start; gap:14px; }.form-intro b, .templates-title b { display:block; font-size:16px; }.form-intro span, .templates-title span { display:block; margin-top:5px; color:var(--center-muted); font-size:12px; }.form-grid { display:grid; gap:12px; margin-top:18px; }.form-grid--small { grid-template-columns:1fr 1fr; }.center-field { display:grid; gap:6px; }.center-field span { color:#536078; font-size:12px; }.center-field input { width:100%; min-height:37px; padding:8px 10px; border:1px solid #d6e0ec; border-radius:8px; outline:none; color:#1f3155; background:#fbfdff; font:13px var(--center-ui); }.center-field input:focus { border-color:#4f88d8; box-shadow:0 0 0 3px rgba(79,136,216,.12); }.center-field input[type="color"] { padding:3px; }.form-divider { height:1px; margin:18px 0; background:#e4ebf3; }.upload-grid { display:grid; grid-template-columns:1fr 1fr; gap:9px; }.center-upload { display:flex; justify-content:space-between; align-items:center; gap:8px; min-height:39px; padding:7px 9px; border:1px dashed #b9c8d9; border-radius:8px; color:#536078; font-size:12px; cursor:pointer; }.center-upload b { color:#2d70bd; font-size:11px; }.center-upload input { display:none; }.center-reset { width:100%; margin-top:18px; padding:10px; border:1px solid #d6e0ec; border-radius:8px; color:#60708b; background:#f8fbfe; font:600 12px var(--center-ui); cursor:pointer; }
+.notice-import { margin-top:18px; padding:13px; border:1px solid #cfdded; border-radius:11px; background:linear-gradient(135deg,rgba(226,242,255,.84),rgba(247,251,255,.95)); }.notice-import-head { display:flex; justify-content:space-between; gap:12px; }.notice-import-head b { display:block; color:#204b8e; font-size:13px; }.notice-import-head span { display:block; margin-top:4px; color:#697a94; font-size:11px; line-height:1.35; }.notice-import-head em { flex:none; padding:4px 7px; border:1px solid #c6d9ec; border-radius:999px; color:#39759e; background:rgba(255,255,255,.72); font-size:10px; font-style:normal; }.notice-import textarea { width:100%; min-height:112px; margin-top:11px; padding:9px 10px; border:1px solid #cbdbea; border-radius:8px; outline:none; resize:vertical; color:#1f3155; background:rgba(255,255,255,.94); font:12px/1.55 var(--center-ui); }.notice-import textarea:focus { border-color:#4f88d8; box-shadow:0 0 0 3px rgba(79,136,216,.12); }.notice-import-actions { display:flex; gap:8px; margin-top:9px; }.notice-import-actions button { padding:8px 11px; border:1px solid #2765b4; border-radius:7px; color:#fff; background:#286cc1; font:700 12px var(--center-ui); cursor:pointer; }.notice-import-actions .notice-clear { border-color:#d0ddea; color:#65758e; background:rgba(255,255,255,.74); }.notice-import-status { margin:9px 0 0; color:#397059; font-size:11px; line-height:1.45; }
 .center-templates { padding:22px; }.templates-title small { color:#7590ae; font-size:12px; }.template-grid { display:grid; grid-template-columns:repeat(4, minmax(0, 1fr)); gap:14px; margin-top:18px; }.template-card { overflow:hidden; border:1px solid #dce5ef; border-radius:11px; color:inherit; text-decoration:none; background:#fff; transition:transform .18s ease, box-shadow .18s ease; }.template-card:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(36,73,117,.15); }.template-thumb { position:relative; height:178px; overflow:hidden; padding:17px; color:#fff; }.template-thumb span { display:block; font-size:10px; font-weight:800; letter-spacing:.14em; opacity:.75; }.template-thumb b { position:absolute; right:16px; bottom:41px; left:16px; font-family:"Songti SC", "STSong", serif; font-size:25px; line-height:1.08; letter-spacing:-.04em; }.template-thumb i { position:absolute; right:16px; bottom:18px; left:16px; overflow:hidden; color:inherit; font-size:11px; font-style:normal; opacity:.8; text-overflow:ellipsis; white-space:nowrap; }.template-meta { padding:11px 12px 13px; }.template-meta b { display:block; font-size:14px; }.template-meta span { display:block; margin-top:4px; color:#697993; font-size:11px; }.card-red .template-thumb { background:radial-gradient(circle at 50% 105%, #ffbd23 0 5%, transparent 6%), radial-gradient(circle at 8% 16%, rgba(255,233,129,.7) 0 1%, transparent 2%), radial-gradient(circle at 91% 18%, rgba(255,233,129,.7) 0 1%, transparent 2%), linear-gradient(145deg,#9e080e,#ec211d 55%,#900009); }.card-red .template-thumb::after { content:"666"; position:absolute; right:12px; top:12px; color:#ffdb43; font:900 44px Georgia,serif; text-shadow:0 2px 0 #7a0005; }.card-red .template-thumb > * { z-index:1; }.card-star .template-thumb { background:radial-gradient(circle at 14% 16%, #386dc6, transparent 32%), radial-gradient(circle at 95% 85%, #132d76, transparent 45%), #0a1c56; }.card-star .template-thumb::after { content:""; position:absolute; inset:0; opacity:.68; background-image:radial-gradient(circle,#fff 0 1px,transparent 1.5px); background-size:18px 18px; }.card-star .template-thumb > * { z-index:1; }.card-boost .template-thumb { color:#05225a; background:linear-gradient(145deg,#73e5ee,#219ed5); }.card-boost .template-thumb::after { content:"+"; position:absolute; right:-16px; top:-28px; color:rgba(255,255,255,.43); font-size:160px; font-weight:900; }.card-info .template-thumb { background:linear-gradient(145deg,#274f9a,#071947); }.card-info .template-thumb::before { content:""; position:absolute; right:18px; top:28px; width:60px; height:77px; border:3px solid #fff; background:rgba(255,255,255,.22); }.card-ink .template-thumb { color:#254b55; background:radial-gradient(ellipse at 0% 0%,rgba(102,160,151,.54),transparent 42%),#f6f0df; }.card-ink .template-thumb::after { content:"印"; position:absolute; right:18px; top:18px; display:grid; place-items:center; width:44px; height:44px; border:2px solid #a74c40; border-radius:50%; color:#a74c40; font-family:"Songti SC",serif; }.card-paper .template-thumb { color:#171717; background:repeating-linear-gradient(0deg,rgba(0,0,0,.04) 0 1px,transparent 1px 9px),#f3efe5; }.card-paper .template-thumb::after { content:"精选"; position:absolute; right:16px; top:17px; padding:6px; color:#fff; background:#a22620; font-size:11px; }.card-board .template-thumb { color:#1d4b76; background:linear-gradient(145deg,#98d9ef,#3e9cd0); }.card-board .template-thumb::after { content:""; position:absolute; left:calc(50% - 37px); top:-8px; width:74px; height:22px; border:6px solid #c7d8dc; border-radius:0 0 9px 9px; background:#8ca5ab; }
 .card-schedule .template-thumb { color:#191b22; background:linear-gradient(145deg,#060815,#112b55); }.card-schedule .template-thumb::before { content:""; position:absolute; inset:16px 18px 12px; border:3px solid #e11e27; background:linear-gradient(135deg,#fff 0 28%,#f9f8f1 28%); box-shadow:0 7px 0 rgba(0,0,0,.28); }.card-schedule .template-thumb::after { content:"666"; position:absolute; right:19px; top:22px; z-index:2; color:#f4d62a; font:900 36px Georgia,serif; transform:rotate(-9deg); text-shadow:0 2px 0 #90050a; }.card-schedule .template-thumb > * { z-index:3; }
 @media (max-width:1050px) { .center-layout { grid-template-columns:1fr; }.template-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
@@ -122,9 +123,12 @@ body { color: #fff; background: #050b20; font-family: var(--ui); }
 /* 编辑器 */
 .editor-toggle { position:fixed; z-index:20; top:18px; left:18px; padding:11px 15px; border:1px solid rgba(255,255,255,.2); border-radius:9px; color:#f9f8f1; background:rgba(8,18,47,.94); font:650 13px var(--ui); cursor:pointer; }
 .editor-panel { position:fixed; z-index:20; top:65px; left:18px; width:342px; max-height:calc(100vh - 84px); overflow:auto; padding:17px; border:1px solid rgba(255,255,255,.16); border-radius:12px; color:#f4f6fe; background:rgba(8,18,47,.96); box-shadow:0 20px 52px rgba(0,0,0,.45); }
+.export-control { position:fixed; z-index:20; top:18px; right:18px; display:grid; justify-items:end; gap:7px; max-width:min(270px, calc(100vw - 36px)); }
+.export-button { min-width:112px; padding:11px 15px; border:1px solid rgba(255,255,255,.34); border-radius:9px; color:#062143; background:linear-gradient(135deg,#8eeaff,#79caff); box-shadow:0 10px 24px rgba(0,0,0,.3); font:800 13px var(--ui); cursor:pointer; }.export-button:hover:not(:disabled) { filter:brightness(1.08); }.export-button:disabled { cursor:wait; opacity:.82; }
+.export-status { display:none; margin:0; padding:8px 10px; border:1px solid rgba(255,255,255,.14); border-radius:7px; color:rgba(255,255,255,.82); background:rgba(8,18,47,.9); font:12px/1.35 var(--ui); text-align:right; }.export-status.is-visible { display:block; }
 .editor-heading { display:flex; justify-content:space-between; gap:10px; margin-bottom:14px; }.editor-heading b { display:block; font-size:16px; }.editor-heading span { display:block; margin-top:4px; color:rgba(255,255,255,.58); font-size:11px; line-height:1.45; }.editor-heading a { color:#8be2ff; font-size:12px; white-space:nowrap; text-decoration:none; }
 .editor-field { display:grid; gap:5px; margin:0 0 10px; }.editor-field > span { color:rgba(255,255,255,.73); font-size:12px; }.editor-field input, .editor-field textarea { width:100%; padding:8px 9px; border:1px solid rgba(255,255,255,.18); border-radius:7px; outline:none; color:#fff; background:rgba(255,255,255,.08); font:13px var(--ui); }.editor-field textarea { min-height:58px; resize:vertical; }.editor-field input[type="color"] { height:34px; padding:3px; }.editor-color-row { display:grid; grid-template-columns:1fr 1fr; gap:10px; }.editor-tip { margin:3px 0 10px; color:rgba(255,255,255,.53); font-size:11px; line-height:1.5; }.editor-upload { display:flex; justify-content:space-between; align-items:center; gap:8px; margin-bottom:7px; color:rgba(255,255,255,.78); font-size:12px; }.editor-upload input { width:180px; color:rgba(255,255,255,.7); font-size:11px; }.editor-reset { width:100%; margin-top:7px; padding:9px; border:1px solid rgba(255,255,255,.22); border-radius:7px; color:#fff; background:rgba(255,255,255,.08); font:600 12px var(--ui); cursor:pointer; }
-body.capture .editor-toggle, body.capture .editor-panel { display:none; }
+body.capture .editor-toggle, body.capture .editor-panel, body.capture .export-control { display:none; }
 @media (max-width:700px) { .editor-panel { width:min(342px, calc(100vw - 36px)); } }
 
       /* 模板中心首页需要正常纵向滚动；视频预览页保持固定画布。 */
@@ -143,6 +147,8 @@ body.capture .editor-toggle, body.capture .editor-panel { display:none; }
     <script src="https://unpkg.com/react@18.3.1/umd/react.production.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/mediabunny@1.55.1/dist/bundles/mediabunny.min.cjs" crossorigin="anonymous"></script>
     <script>
       const template = new URLSearchParams(window.location.search).get("template");
       if (template) document.body.dataset.template = template;
@@ -641,6 +647,7 @@ function Stage({
       version: 1,
       ready: true,
       get captureActive() { return s.current.captureMode; },
+      get playing() { return s.current.playing; },
       setTime: (t) => s.current.setTime(clamp(t, 0, s.current.duration)),
       setPlaying: (p) => s.current.setPlaying(!!p),
       getTime: () => s.current.time,
@@ -961,7 +968,6 @@ Object.assign(window, {
   Stage, PlaybackBar,
 });
 
-
       }
     </script>
     <script type="text/babel">
@@ -989,6 +995,121 @@ function reveal(time, start, end, x = 0, y = 28, scale = 0.98) {
 }
 
 const mediaLabels = { poster: "赛事海报", medal: "奖牌", certificate: "证书", activity: "活动现场图" };
+const EXPORT_FPS = 20;
+const EXPORT_WIDTH = 1080;
+const EXPORT_HEIGHT = 1920;
+
+function waitForPaint() {
+  return new Promise((resolve) => requestAnimationFrame(() => requestAnimationFrame(resolve)));
+}
+
+async function waitForMedia(element) {
+  await Promise.all(Array.from(element.querySelectorAll("img")).map(async (image) => {
+    if (!image.complete) await new Promise((resolve) => { image.addEventListener("load", resolve, { once: true }); image.addEventListener("error", resolve, { once: true }); });
+    if (image.decode) { try { await image.decode(); } catch {} }
+  }));
+}
+
+function exportFileName(value) {
+  const clean = String(value || "赛事宣传片").replace(/[\\/:*?\"<>|]+/g, "-").replace(/\s+/g, " ").trim().slice(0, 42);
+  return `${clean || "赛事宣传片"}-1080x1920.mp4`;
+}
+
+function saveBlob(blob, fileName) {
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName;
+  document.body.appendChild(link);
+  link.click();
+  link.remove();
+  window.setTimeout(() => URL.revokeObjectURL(url), 1200);
+}
+
+function ExportVideo({ data }) {
+  const [state, setState] = useState({ working: false, percent: 0, message: "" });
+
+  const exportMp4 = async () => {
+    const stage = window.__animStage;
+    const videoCanvas = document.querySelector("[data-stage-canvas] .video-canvas");
+    if (!stage || !videoCanvas) {
+      setState({ working: false, percent: 0, message: "页面还在加载，请稍候再试。" });
+      return;
+    }
+    if (!window.html2canvas || !window.Mediabunny) {
+      setState({ working: false, percent: 0, message: "导出组件加载中，请等待几秒后重试。" });
+      return;
+    }
+
+    const previousTime = stage.getTime();
+    const shouldResume = stage.playing;
+    let started = false;
+
+    try {
+      setState({ working: true, percent: 0, message: "正在准备 1080×1920 MP4…" });
+      stage.setPlaying(false);
+      if (document.fonts && document.fonts.ready) await document.fonts.ready;
+      await waitForMedia(videoCanvas);
+
+      const renderCanvas = document.createElement("canvas");
+      renderCanvas.width = EXPORT_WIDTH;
+      renderCanvas.height = EXPORT_HEIGHT;
+      const context = renderCanvas.getContext("2d", { alpha: false });
+      if (!context) throw new Error("浏览器无法创建视频画布。");
+
+      const { Output, Mp4OutputFormat, BufferTarget, CanvasSource } = window.Mediabunny;
+      const target = new BufferTarget();
+      const output = new Output({ format: new Mp4OutputFormat({ fastStart: "in-memory" }), target });
+      const source = new CanvasSource(renderCanvas, { codec: "avc", bitrate: 6500000, bitrateMode: "variable" });
+      output.addVideoTrack(source, { frameRate: EXPORT_FPS });
+      await output.start();
+      started = true;
+
+      const duration = stage.duration;
+      const totalFrames = Math.round(duration * EXPORT_FPS);
+      for (let frame = 0; frame < totalFrames; frame += 1) {
+        const timestamp = frame / EXPORT_FPS;
+        stage.setTime(timestamp);
+        await waitForPaint();
+        const captured = await window.html2canvas(videoCanvas, {
+          backgroundColor: null,
+          scale: 1,
+          width: EXPORT_WIDTH,
+          height: EXPORT_HEIGHT,
+          windowWidth: EXPORT_WIDTH,
+          windowHeight: EXPORT_HEIGHT,
+          useCORS: true,
+          allowTaint: false,
+          logging: false,
+        });
+        context.fillStyle = "#091845";
+        context.fillRect(0, 0, EXPORT_WIDTH, EXPORT_HEIGHT);
+        context.drawImage(captured, 0, 0, EXPORT_WIDTH, EXPORT_HEIGHT);
+        await source.add(timestamp, 1 / EXPORT_FPS, { keyFrame: frame === 0 || frame % (EXPORT_FPS * 3) === 0 });
+        setState({ working: true, percent: Math.round(((frame + 1) / totalFrames) * 100), message: `正在生成 MP4 · ${frame + 1}/${totalFrames} 帧` });
+      }
+
+      setState({ working: true, percent: 100, message: "正在封装 MP4 文件…" });
+      await output.finalize();
+      started = false;
+      if (!target.buffer) throw new Error("MP4 文件生成失败，请重试。");
+      saveBlob(new Blob([target.buffer], { type: "video/mp4" }), exportFileName(data.eventName));
+      setState({ working: false, percent: 100, message: "MP4 已开始下载（无声版）。" });
+    } catch (error) {
+      console.error("MP4 导出失败", error);
+      setState({ working: false, percent: 0, message: `导出失败：${error && error.message ? error.message : "请使用最新版 Chrome 或 Edge 重试。"}` });
+    } finally {
+      if (started) { try { /* 编码初始化未完成时，无需强行封装文件。 */ } catch {} }
+      stage.setTime(previousTime);
+      stage.setPlaying(shouldResume);
+    }
+  };
+
+  return <aside className="export-control" data-html2canvas-ignore="true">
+    <button className="export-button" disabled={state.working} onClick={exportMp4}>{state.working ? `生成中 ${state.percent}%` : "导出 MP4"}</button>
+    <p className={`export-status ${state.message ? "is-visible" : ""}`} aria-live="polite">{state.message || "导出 1080×1920 无声视频"}</p>
+  </aside>;
+}
 
 function Media({ data, kind, className = "", style, fit = "cover" }) {
   const src = data.images[kind];
@@ -1177,7 +1298,7 @@ function VideoTemplateApp() {
   const [editorOpen, setEditorOpen] = useState(false);
   const Template = useMemo(() => templateComponents[templateId] || InfoTemplate, []);
   useEffect(() => { if (!isCapture) { try { VideoTemplateStore.save(data); } catch (error) { console.warn("资料保存失败，请缩小图片后重试。", error); } } }, [data]);
-  return <><Stage width={1080} height={1920} duration={8.2} fps={30} background="#091845" persistKey={`competition-video-template-${templateId}`} autoplay={!isCapture}><Template data={data}></Template></Stage>{!isCapture && <Editor data={data} setData={setData} open={editorOpen} setOpen={setEditorOpen}></Editor>}</>;
+  return <><Stage width={1080} height={1920} duration={8.2} fps={30} background="#091845" persistKey={`competition-video-template-${templateId}`} autoplay={!isCapture}><Template data={data}></Template></Stage>{!isCapture && <><Editor data={data} setData={setData} open={editorOpen} setOpen={setEditorOpen}></Editor><ExportVideo data={data}></ExportVideo></>}</>;
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(<VideoTemplateApp></VideoTemplateApp>);
@@ -1203,9 +1324,92 @@ function TextField({ label, value, onChange, type = "text" }) {
   return <label className="center-field"><span>{label}</span><input type={type} value={value} onChange={(event) => onChange(event.target.value)}></input></label>;
 }
 
+function cleanNoticeLine(value) {
+  return String(value || "").replace(/^[\s\uFE0F•▪▫📣📅⏰💻📚🏆🔥📌👇🥇🥈🥉🌟]+/u, "").replace(/\s+/g, " ").trim();
+}
+
+function limitNoticeValue(value, length = 58) {
+  const clean = cleanNoticeLine(value).replace(/[。；;]+$/, "");
+  return clean.length > length ? `${clean.slice(0, length - 1)}…` : clean;
+}
+
+function extractNoticeData(source, fallback) {
+  const lines = String(source || "").split(/\n+/).map(cleanNoticeLine).filter(Boolean);
+  const findIndex = (pattern) => lines.findIndex((line) => pattern.test(line));
+  const valueAt = (index, maxFollowing = 2) => {
+    if (index < 0) return "";
+    const current = lines[index];
+    const colon = current.search(/[：:]/);
+    if (colon >= 0 && current.slice(colon + 1).trim()) return limitNoticeValue(current.slice(colon + 1));
+    if (!/(?:时间|信息|比例|设置|对象|年级|形式|方式|费用|级别|题量|时长)$/.test(current)) return limitNoticeValue(current);
+    const following = [];
+    for (let offset = 1; offset <= maxFollowing; offset += 1) {
+      const next = lines[index + offset];
+      if (!next || /^(报名|正式活动|初选|复选|全国|模拟|活动信息|获奖|奖项|参赛|费用|题量|时长|形式|级别)[：:]/.test(next) || /(?:时间|信息|比例|设置)$/.test(next)) break;
+      following.push(next);
+    }
+    return limitNoticeValue(following.join("；"));
+  };
+  const valueFor = (pattern, maxFollowing = 2) => valueAt(findIndex(pattern), maxFollowing);
+  const firstValue = (...patterns) => {
+    for (const pattern of patterns) {
+      const value = valueFor(pattern);
+      if (value) return value;
+    }
+    return "";
+  };
+  const point = (label, value) => value ? `${label}：${limitNoticeValue(value)}` : "";
+
+  const titleLine = lines.find((line) => line.length <= 70 && /(报名开启|开始报名|开放报名|活动|竞赛|比赛|选拔|测评|杯)/.test(line) && !/^(报名|活动时间|考试时间|参赛对象|考试形式|活动形式|获奖|奖项)/.test(line));
+  const eventName = titleLine ? limitNoticeValue(titleLine.split(/[｜|]/)[0].replace(/(?:现已|正在)?(?:开放|开始)?报名.*$/, "").replace(/^[【\[]|[】\]]$/g, ""), 34) : "";
+  const deadline = firstValue(/(?:报名截止|截止报名|报名时间)/);
+  const eventDate = firstValue(/(?:正式活动|活动日期|考试日期|考试时间|初选时间|复选时间|总评选)/);
+  const activityTime = firstValue(/(?:各年级)?(?:活动|考试)时间/);
+  const debugTime = firstValue(/(?:模拟调试|调试时间|试运行)/);
+  const form = firstValue(/(?:活动形式|考试形式|考试方式|活动方式|^形式[：:])/);
+  const level = firstValue(/(?:级别|Level\s*\d)/i);
+  const grade = firstValue(/(?:参赛对象|参赛年级|适合.*年级|面向.*年级|参加对象)/);
+  const fee = firstValue(/(?:报名费|活动费|费用|收费)/);
+  const questionCount = firstValue(/(?:题量|题目|共\s*\d+\s*题)/);
+  const duration = firstValue(/(?:时长|用时|\d+\s*分钟)/);
+
+  const awardIndex = findIndex(/(?:获奖比例|奖项设置|奖项)/);
+  const awardRows = awardIndex >= 0 ? lines.slice(awardIndex + 1, awardIndex + 6).filter((line) => /(?:奖|\d+%|优胜)/.test(line)) : [];
+  const awards = limitNoticeValue(awardRows.join(" · "), 62);
+  const formatDetail = [form, questionCount && `题量${questionCount}`, duration && `时长${duration}`].filter(Boolean).join(" · ");
+  const audienceDetail = [grade, fee && `费用${fee}`].filter(Boolean).join(" · ");
+  const candidates = [
+    point("报名截止", deadline),
+    point("正式活动", eventDate),
+    point("活动时间", activityTime),
+    point("活动形式", formatDetail),
+    point("参赛信息", audienceDetail),
+    point("模拟调试", debugTime),
+    point("奖项设置", awards),
+  ].filter(Boolean);
+  const changes = [];
+  if (eventName) changes.push("赛事名");
+  if (form || level) changes.push("副标题");
+  if (awards) changes.push("宣传卖点");
+  if (candidates.length) changes.push(`${Math.min(candidates.length, 5)} 条赛事要点`);
+
+  return {
+    data: {
+      ...fallback,
+      ...(eventName ? { eventName } : {}),
+      ...(form || level ? { subtitle: [form, level].filter(Boolean).join(" · ") } : {}),
+      ...(awards ? { sellingPoint: `获奖比例 · ${awards}` } : {}),
+      ...(candidates.length ? { points: [...candidates, ...fallback.points].slice(0, 5) } : {}),
+    },
+    changes,
+  };
+}
+
 function TemplateCenterApp() {
   const [data, setData] = useState(() => VideoTemplateStore.load());
   const [saved, setSaved] = useState(false);
+  const [notice, setNotice] = useState("");
+  const [importStatus, setImportStatus] = useState("");
   const update = (key, value) => setData((current) => ({ ...current, [key]: value }));
   const updatePoint = (index, value) => setData((current) => ({ ...current, points: current.points.map((point, currentIndex) => currentIndex === index ? value : point) }));
   const updateImage = async (key, file) => {
@@ -1213,11 +1417,19 @@ function TemplateCenterApp() {
     const source = await VideoTemplateStore.readFile(file);
     setData((current) => ({ ...current, images: { ...current.images, [key]: source } }));
   };
+  const importNotice = () => {
+    if (!notice.trim()) { setImportStatus("先粘贴一段赛事通知，再开始提取。"); return; }
+    const extracted = extractNoticeData(notice, data);
+    if (!extracted.changes.length) { setImportStatus("暂未识别到常见赛事字段，请检查通知内容后重试。"); return; }
+    setData(extracted.data);
+    setImportStatus(`已自动填入：${extracted.changes.join("、")}。你可以继续微调。`);
+  };
   useEffect(() => { try { VideoTemplateStore.save(data); setSaved(true); const timeout = setTimeout(() => setSaved(false), 1300); return () => clearTimeout(timeout); } catch (error) { console.warn("资料保存失败，请缩小图片后重试。", error); } }, [data]);
   return <main className="center-app">
     <header className="center-header"><div><span>VIDEO TEMPLATE KIT</span><h1>赛事招生短视频模板中心</h1><p>填写一份资料，选择一套版式，生成 1080 × 1920 / 约 8 秒的发布视频。</p></div><div className="center-status">{saved ? "已自动保存" : "资料已就绪"}</div></header>
     <section className="center-flow"><span>01 填赛事资料</span><i></i><span>02 选视频模板</span><i></i><span>03 预览并导出 MP4</span></section>
     <div className="center-layout"><section className="center-form"><div className="form-intro"><b>统一赛事资料</b><span>以下内容将同步用于 8 套模板</span></div>
+      <section className="notice-import"><div className="notice-import-head"><div><b>粘贴赛事通知，自动填入</b><span>识别赛事名、时间、年级、形式、费用与奖项</span></div><em>本地识别</em></div><textarea value={notice} onChange={(event) => setNotice(event.target.value)} placeholder="把家长群、公众号或活动通知整段复制到这里…"></textarea><div className="notice-import-actions"><button onClick={importNotice}>一键提取并填入</button><button className="notice-clear" onClick={() => { setNotice(""); setImportStatus(""); }}>清空</button></div>{importStatus && <p className="notice-import-status">{importStatus}</p>}</section>
       <div className="form-grid"><TextField label="赛事名" value={data.eventName} onChange={(value) => update("eventName", value)}></TextField><TextField label="副标题" value={data.subtitle} onChange={(value) => update("subtitle", value)}></TextField><TextField label="宣传卖点" value={data.sellingPoint} onChange={(value) => update("sellingPoint", value)}></TextField>{data.points.map((point, index) => <TextField key={index} label={`要点 ${index + 1}`} value={point} onChange={(value) => updatePoint(index, value)}></TextField>)}</div>
       <div className="form-divider"></div><div className="form-grid form-grid--small"><TextField label="账号名" value={data.accountName} onChange={(value) => update("accountName", value)}></TextField><TextField label="背景音乐名称" value={data.musicName} onChange={(value) => update("musicName", value)}></TextField><TextField label="品牌主色" type="color" value={data.brandPrimary} onChange={(value) => update("brandPrimary", value)}></TextField><TextField label="品牌辅色" type="color" value={data.brandSecondary} onChange={(value) => update("brandSecondary", value)}></TextField></div>
       <div className="form-divider"></div><div className="upload-grid">{[["poster", "赛事海报"], ["medal", "奖牌"], ["certificate", "证书"], ["activity", "活动现场图"]].map(([key, label]) => <label className="center-upload" key={key}><span>{label}</span><b>{data.images[key] ? "已添加" : "添加图片"}</b><input type="file" accept="image/*" onChange={(event) => updateImage(key, event.target.files && event.target.files[0])}></input></label>)}</div>
