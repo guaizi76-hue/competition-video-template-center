@@ -106,6 +106,7 @@ body { color: #fff; background: #050b20; font-family: var(--ui); }
 .red-foot { position:absolute; z-index:3; right:86px; bottom:134px; left:86px; display:flex; justify-content:space-between; color:#ffe788; font-size:23px; font-weight:760; letter-spacing:.04em; }.red-foot b { color:#fff4cb; }
 .red-final { position:absolute; z-index:8; right:68px; bottom:290px; left:68px; display:grid; grid-template-columns:1fr auto; align-items:center; gap:2px 20px; min-height:230px; padding:28px 42px; border:3px solid #ffd64a; color:#fff8d6; background:linear-gradient(110deg,rgba(72,0,5,.98),rgba(149,4,12,.98)); box-shadow:0 24px 68px rgba(51,0,3,.48),inset 0 0 40px rgba(255,214,74,.12); }.red-final > span { font-size:35px; font-weight:850; letter-spacing:.06em; }.red-final strong { color:#ffe158; font:900 96px Georgia,serif; line-height:.9; text-shadow:0 3px 0 #750008; }.red-final p { grid-column:1 / -1; margin-top:5px; color:#fff2ba; font-size:28px; font-weight:700; }
 @keyframes redSpin { to { transform:rotate(1turn); } } @keyframes redBurst { 0%,100% { transform:scale(.82) rotate(0deg); opacity:.56; } 50% { transform:scale(1.05) rotate(13deg); opacity:1; } } @keyframes redSparks { 0%,100% { transform:translateY(0); opacity:.5; } 50% { transform:translateY(-20px); opacity:.9; } }
+.video-canvas.export-render .red-radiance { animation-play-state:paused; animation-delay:var(--capture-negative-time); }.video-canvas.export-render .red-burst { animation-play-state:paused; animation-delay:var(--capture-negative-time); }.video-canvas.export-render .red-burst-b { animation-delay:calc(var(--capture-negative-time) - 1.4s); }.video-canvas.export-render .red-sparks { animation-play-state:paused; animation-delay:var(--capture-negative-time); }
 
 /* 赛程汇总动态 */
 .theme-schedule { color:#161a22; background:radial-gradient(circle at 8% 8%,rgba(255,54,43,.58),transparent 25%),radial-gradient(circle at 91% 86%,rgba(26,171,255,.6),transparent 30%),linear-gradient(145deg,#03050d 0%,#071332 48%,#010207 100%); }
@@ -1088,6 +1089,7 @@ function ExportVideo({ data }) {
       captureFrame = await createNativeCaptureFrame();
       const { sourceWindow, sourceDocument, videoCanvas } = captureFrame;
       const sourceStage = sourceWindow.__animStage;
+      videoCanvas.classList.add("export-render");
       await waitForMedia(videoCanvas);
 
       const renderCanvas = document.createElement("canvas");
@@ -1108,6 +1110,8 @@ function ExportVideo({ data }) {
       const totalFrames = Math.round(duration * EXPORT_FPS);
       for (let frame = 0; frame < totalFrames; frame += 1) {
         const timestamp = frame / EXPORT_FPS;
+        videoCanvas.style.setProperty("--capture-time", `${timestamp}s`);
+        videoCanvas.style.setProperty("--capture-negative-time", `-${timestamp}s`);
         sourceStage.setTime(timestamp);
         await new Promise((next) => sourceWindow.requestAnimationFrame(() => sourceWindow.requestAnimationFrame(next)));
         const captured = await window.html2canvas(videoCanvas, {
