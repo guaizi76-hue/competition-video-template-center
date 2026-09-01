@@ -124,6 +124,7 @@ body { color: #fff; background: #050b20; font-family: var(--ui); }
 .editor-toggle { position:fixed; z-index:20; top:18px; left:18px; padding:11px 15px; border:1px solid rgba(255,255,255,.2); border-radius:9px; color:#f9f8f1; background:rgba(8,18,47,.94); font:650 13px var(--ui); cursor:pointer; }
 .editor-panel { position:fixed; z-index:20; top:65px; left:18px; width:342px; max-height:calc(100vh - 84px); overflow:auto; padding:17px; border:1px solid rgba(255,255,255,.16); border-radius:12px; color:#f4f6fe; background:rgba(8,18,47,.96); box-shadow:0 20px 52px rgba(0,0,0,.45); }
 .export-control { position:fixed; z-index:20; top:18px; right:18px; display:grid; justify-items:end; gap:7px; max-width:min(270px, calc(100vw - 36px)); }
+.export-capture-frame { position:fixed; z-index:-1; top:0; left:-12000px; display:block; width:1080px; height:1920px; border:0; pointer-events:none; }
 .export-button { min-width:112px; padding:11px 15px; border:1px solid rgba(255,255,255,.34); border-radius:9px; color:#062143; background:linear-gradient(135deg,#8eeaff,#79caff); box-shadow:0 10px 24px rgba(0,0,0,.3); font:800 13px var(--ui); cursor:pointer; }.export-button:hover:not(:disabled) { filter:brightness(1.08); }.export-button:disabled { cursor:wait; opacity:.82; }
 .export-status { display:none; margin:0; padding:8px 10px; border:1px solid rgba(255,255,255,.14); border-radius:7px; color:rgba(255,255,255,.82); background:rgba(8,18,47,.9); font:12px/1.35 var(--ui); text-align:right; }.export-status.is-visible { display:block; }
 .editor-heading { display:flex; justify-content:space-between; gap:10px; margin-bottom:14px; }.editor-heading b { display:block; font-size:16px; }.editor-heading span { display:block; margin-top:4px; color:rgba(255,255,255,.58); font-size:11px; line-height:1.45; }.editor-heading a { color:#8be2ff; font-size:12px; white-space:nowrap; text-decoration:none; }
@@ -1026,13 +1027,47 @@ function saveBlob(blob, fileName) {
   window.setTimeout(() => URL.revokeObjectURL(url), 1200);
 }
 
+function createNativeCaptureFrame() {
+  const url = new URL(window.location.href);
+  url.searchParams.set("capture", "1");
+  const frame = document.createElement("iframe");
+  frame.className = "export-capture-frame";
+  frame.width = String(EXPORT_WIDTH);
+  frame.height = String(EXPORT_HEIGHT);
+  frame.title = "视频原始尺寸渲染画布";
+  frame.src = url.href;
+  document.body.appendChild(frame);
+  return new Promise((resolve, reject) => {
+    const timeout = window.setTimeout(() => reject(new Error("原始画布加载超时，请检查网络后重试。")), 15000);
+    frame.addEventListener("load", async () => {
+      try {
+        const sourceWindow = frame.contentWindow;
+        const sourceDocument = frame.contentDocument;
+        if (!sourceWindow || !sourceDocument) throw new Error("无法创建原始尺寸画布。");
+        for (let attempt = 0; attempt < 100; attempt += 1) {
+          if (sourceWindow.__animStage && sourceDocument.querySelector("[data-stage-canvas] .video-canvas")) {
+            if (sourceDocument.fonts && sourceDocument.fonts.ready) await sourceDocument.fonts.ready;
+            clearTimeout(timeout);
+            resolve({ frame, sourceWindow, sourceDocument, videoCanvas: sourceDocument.querySelector("[data-stage-canvas] .video-canvas") });
+            return;
+          }
+          await new Promise((next) => sourceWindow.requestAnimationFrame(next));
+        }
+        throw new Error("原始画布初始化失败，请刷新页面后重试。" );
+      } catch (error) {
+        clearTimeout(timeout);
+        reject(error);
+      }
+    }, { once: true });
+  });
+}
+
 function ExportVideo({ data }) {
   const [state, setState] = useState({ working: false, percent: 0, message: "" });
 
   const exportMp4 = async () => {
     const stage = window.__animStage;
-    const videoCanvas = document.querySelector("[data-stage-canvas] .video-canvas");
-    if (!stage || !videoCanvas) {
+    if (!stage) {
       setState({ working: false, percent: 0, message: "页面还在加载，请稍候再试。" });
       return;
     }
@@ -1044,11 +1079,15 @@ function ExportVideo({ data }) {
     const previousTime = stage.getTime();
     const shouldResume = stage.playing;
     let started = false;
+    let captureFrame = null;
 
     try {
-      setState({ working: true, percent: 0, message: "正在准备 1080×1920 MP4…" });
+      setState({ working: true, percent: 0, message: "正在准备原始 1080×1920 画布…" });
       stage.setPlaying(false);
-      if (document.fonts && document.fonts.ready) await document.fonts.ready;
+      VideoTemplateStore.save(data);
+      captureFrame = await createNativeCaptureFrame();
+      const { sourceWindow, sourceDocument, videoCanvas } = captureFrame;
+      const sourceStage = sourceWindow.__animStage;
       await waitForMedia(videoCanvas);
 
       const renderCanvas = document.createElement("canvas");
@@ -1065,12 +1104,12 @@ function ExportVideo({ data }) {
       await output.start();
       started = true;
 
-      const duration = stage.duration;
+      const duration = sourceStage.duration;
       const totalFrames = Math.round(duration * EXPORT_FPS);
       for (let frame = 0; frame < totalFrames; frame += 1) {
         const timestamp = frame / EXPORT_FPS;
-        stage.setTime(timestamp);
-        await waitForPaint();
+        sourceStage.setTime(timestamp);
+        await new Promise((next) => sourceWindow.requestAnimationFrame(() => sourceWindow.requestAnimationFrame(next)));
         const captured = await window.html2canvas(videoCanvas, {
           backgroundColor: null,
           scale: 1,
@@ -1086,7 +1125,7 @@ function ExportVideo({ data }) {
         context.fillRect(0, 0, EXPORT_WIDTH, EXPORT_HEIGHT);
         context.drawImage(captured, 0, 0, EXPORT_WIDTH, EXPORT_HEIGHT);
         await source.add(timestamp, 1 / EXPORT_FPS, { keyFrame: frame === 0 || frame % (EXPORT_FPS * 3) === 0 });
-        setState({ working: true, percent: Math.round(((frame + 1) / totalFrames) * 100), message: `正在生成 MP4 · ${frame + 1}/${totalFrames} 帧` });
+        setState({ working: true, percent: Math.round(((frame + 1) / totalFrames) * 100), message: `正在生成原始尺寸 MP4 · ${frame + 1}/${totalFrames} 帧` });
       }
 
       setState({ working: true, percent: 100, message: "正在封装 MP4 文件…" });
@@ -1100,6 +1139,7 @@ function ExportVideo({ data }) {
       setState({ working: false, percent: 0, message: `导出失败：${error && error.message ? error.message : "请使用最新版 Chrome 或 Edge 重试。"}` });
     } finally {
       if (started) { try { /* 编码初始化未完成时，无需强行封装文件。 */ } catch {} }
+      if (captureFrame && captureFrame.frame) captureFrame.frame.remove();
       stage.setTime(previousTime);
       stage.setPlaying(shouldResume);
     }
