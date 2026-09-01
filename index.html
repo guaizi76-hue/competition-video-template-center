@@ -951,6 +951,10 @@ Object.assign(window, {
 });
 
 
+      }
+    </script>
+    <script type="text/babel">
+      if (new URLSearchParams(window.location.search).has("template")) {
 const { useEffect, useMemo, useState } = React;
 
 const isCapture = new URLSearchParams(window.location.search).has("capture");
@@ -1167,7 +1171,10 @@ function VideoTemplateApp() {
 
 ReactDOM.createRoot(document.getElementById("root")).render(<VideoTemplateApp></VideoTemplateApp>);
 
-      } else {
+      }
+    </script>
+    <script type="text/babel">
+      if (!new URLSearchParams(window.location.search).has("template")) {
 const { useEffect, useState } = React;
 
 const templateCards = [
