@@ -123,22 +123,30 @@ body { color: #fff; background: #050b20; font-family: var(--ui); }
 @keyframes scheduleReply { 0%,100% { transform:rotate(-8deg) translateY(0) scale(1); } 50% { transform:rotate(-4deg) translateY(-17px) scale(1.065); } } @keyframes scheduleGrid { to { background-position:0 180px,180px 0; } } @keyframes scheduleAuraA { 0%,100% { transform:translate(0,0) scale(.9); opacity:.5; } 50% { transform:translate(150px,90px) scale(1.16); opacity:.88; } } @keyframes scheduleAuraB { 0%,100% { transform:translate(0,0) scale(.9); opacity:.4; } 50% { transform:translate(-170px,-120px) scale(1.2); opacity:.82; } } @keyframes scheduleSparks { 0%,100% { transform:translateY(0); opacity:.45; } 50% { transform:translateY(-36px); opacity:.9; } } @keyframes scheduleStreakA { 0%,100% { transform:translateX(-120px) rotate(-18deg); opacity:0; } 35%,65% { opacity:.85; } 50% { transform:translateX(680px) rotate(-18deg); } } @keyframes scheduleStreakB { 0%,100% { transform:translateX(170px) rotate(-26deg); opacity:0; } 35%,65% { opacity:.76; } 50% { transform:translateX(-700px) rotate(-26deg); } }
 
 /* 荣誉证书墙 */
-.theme-award { color:#fff; background:linear-gradient(167deg, rgba(255,249,212,.94) 0%, rgba(168,232,172,.9) 32%, rgba(82,188,138,.9) 58%, rgba(20,114,110,.96) 100%); }
-.award-blob { position:absolute; filter:blur(26px); opacity:.6; }.award-blob--a { top:-140px; left:-170px; width:700px; height:700px; background:radial-gradient(circle,rgba(255,249,188,.9),transparent 60%); }.award-blob--b { right:-190px; bottom:-150px; width:760px; height:760px; background:radial-gradient(circle,rgba(150,235,255,.62),transparent 62%); }
-.award-grid { position:absolute; inset:0; opacity:.04; background-image:linear-gradient(rgba(255,255,255,.08) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px); background-size:58px 58px; }
-.award-rays { position:absolute; inset:-30%; opacity:.5; background:repeating-conic-gradient(from 18deg at 26% -6%, rgba(255,255,255,.18) 0deg 4deg, transparent 4deg 16deg); mix-blend-mode:screen; }
-.award-veil { position:absolute; inset:0; z-index:1; background:linear-gradient(180deg, rgba(10,48,44,.42) 0%, rgba(10,48,44,0) 27%, rgba(10,48,44,0) 60%, rgba(10,48,44,.5) 100%); }
-.award-account { position:absolute; z-index:3; top:62px; left:68px; display:flex; gap:12px; align-items:center; color:rgba(255,255,255,.72); font-size:22px; font-weight:760; letter-spacing:.04em; }.award-account span { color:var(--accent); font-size:17px; font-weight:800; }
-.award-title { position:absolute; z-index:3; top:132px; left:56px; right:56px; text-align:center; }.award-kicker { display:block; color:#9fe3b0; font-size:30px; font-weight:820; letter-spacing:.12em; text-shadow:0 2px 0 rgba(0,0,0,.3); }.award-title h1 { margin:18px auto 0; max-width:1020px; color:#fff; font-family:var(--display); font-size:92px; font-weight:820; line-height:1.06; letter-spacing:-.045em; text-shadow:0 4px 0 #a21c1c, 0 8px 28px rgba(0,0,0,.42); text-wrap:balance; }.award-title p { margin:18px auto 0; max-width:1020px; color:#ffd84a; font-size:56px; font-weight:900; line-height:1.12; letter-spacing:-.02em; text-shadow:0 3px 0 #b3121a, 0 8px 26px rgba(0,0,0,.36); text-wrap:balance; }
-.award-check { position:absolute; z-index:3; top:606px; left:68px; right:68px; display:flex; align-items:center; gap:14px; color:#ffe28a; font-size:39px; font-weight:830; line-height:1.2; text-shadow:0 2px 0 rgba(0,0,0,.34); }.award-check-mark { flex:none; display:grid; place-items:center; width:52px; height:52px; border-radius:50%; color:#fff; background:#2fbf63; font-size:30px; font-weight:900; box-shadow:0 4px 0 #178a41; }
-.award-list { position:absolute; z-index:3; top:692px; left:68px; right:84px; display:grid; gap:17px; }.award-line { display:grid; grid-template-columns:34px 1fr; gap:16px; align-items:baseline; }.award-dot { width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#ffd84a,#ff9d1f); box-shadow:0 0 0 5px rgba(255,216,74,.14); }.award-line strong { color:#fff; font-size:39px; font-weight:850; line-height:1.28; text-shadow:0 2px 10px rgba(0,0,0,.42); }.award-line i { color:#ffe06b; font-style:normal; font-weight:900; }.award-line em { color:#fff; font-style:normal; font-weight:800; }
+.theme-award { color:#fff; overflow:hidden; background:#180205; }
+.award-impact { position:absolute; z-index:0; inset:-90px; overflow:hidden; transform-origin:70% 30%; background:radial-gradient(ellipse at 18% 7%,#fff4db 0%,#fbe0ca 25%,rgba(244,190,174,.76) 43%,transparent 65%),linear-gradient(154deg,#b84a4a 0%,#df786b 28%,#f8d5c3 49%,#cf554f 72%,#8c2527 100%); will-change:transform,opacity,filter; }
+.award-ribbon { position:absolute; overflow:hidden; border-radius:50%; opacity:.68; background:linear-gradient(146deg,#6f0008 0%,#d51f23 24%,#ff7960 38%,#a90013 57%,#570005 100%); box-shadow:inset 32px 30px 52px rgba(255,191,142,.28),inset -38px -26px 50px rgba(71,0,5,.66),0 16px 38px rgba(69,0,4,.28); }
+.award-ribbon::after { content:""; position:absolute; inset:98px; border-radius:inherit; background:radial-gradient(ellipse at 28% 12%,#fff7e1 0%,#f9d7bb 44%,#e7a990 100%); box-shadow:inset 0 0 70px rgba(131,21,18,.14); }
+.award-ribbon--top { top:-730px; right:-480px; width:1510px; height:1380px; transform:rotate(17deg); }
+.award-ribbon--middle { top:265px; left:-940px; width:1670px; height:1080px; transform:rotate(-31deg); }
+.award-ribbon--bottom { right:-590px; bottom:-780px; width:1660px; height:1420px; transform:rotate(-14deg); }
+.award-silk-highlight { position:absolute; z-index:2; height:40px; border-radius:999px; opacity:.56; background:linear-gradient(90deg,transparent,rgba(255,245,202,.9),rgba(255,184,112,.78),transparent); filter:blur(2px); transform-origin:center; mix-blend-mode:screen; }
+.award-silk-highlight--a { top:458px; left:-120px; width:1120px; transform:rotate(-27deg); }.award-silk-highlight--b { right:-180px; bottom:358px; width:1200px; transform:rotate(-19deg); }
+.award-glitter { position:absolute; inset:0; z-index:3; opacity:.46; background-image:radial-gradient(circle at 20% 23%,#fff7c2 0 2px,transparent 2.8px),radial-gradient(circle at 70% 17%,rgba(255,219,132,.92) 0 1.4px,transparent 2.4px),radial-gradient(circle at 81% 64%,#fff1b3 0 1.7px,transparent 2.7px),radial-gradient(circle at 34% 74%,rgba(255,230,158,.88) 0 1.2px,transparent 2.2px); background-size:143px 177px,211px 167px,179px 229px,263px 197px; animation:awardGlitter 2.8s ease-in-out infinite; }
+.award-flash { position:absolute; z-index:2; inset:0; pointer-events:none; background:radial-gradient(ellipse at 53% 36%,rgba(255,255,237,.98) 0%,rgba(255,215,175,.75) 25%,rgba(255,86,47,.24) 57%,transparent 76%); mix-blend-mode:screen; }
+.award-veil { position:absolute; inset:0; z-index:2; background:linear-gradient(180deg,rgba(48,0,4,.34) 0%,rgba(48,0,4,0) 30%,rgba(48,0,4,.02) 62%,rgba(36,0,3,.44) 100%); }
+.award-account { position:absolute; z-index:3; top:62px; left:68px; display:flex; gap:12px; align-items:center; color:rgba(255,250,237,.92); font-size:22px; font-weight:760; letter-spacing:.04em; text-shadow:0 2px 0 #720007,0 5px 14px rgba(55,0,4,.58); }.award-account span { color:#ffe489; font-size:17px; font-weight:800; }
+.award-title { position:absolute; z-index:3; top:132px; left:56px; right:56px; text-align:center; }.award-kicker { display:block; color:#ffe08a; font-size:30px; font-weight:820; letter-spacing:.12em; text-shadow:0 2px 0 #760008,0 5px 14px rgba(55,0,4,.58); }.award-title h1 { margin:18px auto 0; max-width:1020px; color:#fff9ee; font-family:var(--display); font-size:92px; font-weight:820; line-height:1.06; letter-spacing:-.045em; text-shadow:0 3px 0 #790007,0 8px 24px rgba(46,0,4,.66); text-wrap:balance; }.award-title p { margin:18px auto 0; max-width:1020px; color:#ffe357; font-size:56px; font-weight:900; line-height:1.12; letter-spacing:-.02em; text-shadow:0 3px 0 #8a080c,0 8px 24px rgba(42,0,3,.62); text-wrap:balance; }
+.award-check { position:absolute; z-index:3; top:606px; left:68px; right:68px; display:flex; align-items:center; gap:14px; color:#ffeca9; font-size:39px; font-weight:830; line-height:1.2; text-shadow:0 2px 0 #700006,0 5px 14px rgba(55,0,4,.58); }.award-check-mark { flex:none; display:grid; place-items:center; width:52px; height:52px; border-radius:50%; color:#fff; background:linear-gradient(145deg,#e55142,#a40a15); font-size:30px; font-weight:900; box-shadow:0 4px 0 #70040c,0 0 0 4px rgba(255,220,135,.22); }
+.award-list { position:absolute; z-index:3; top:692px; left:68px; right:84px; display:grid; gap:17px; }.award-line { display:grid; grid-template-columns:34px 1fr; gap:16px; align-items:baseline; }.award-dot { width:24px; height:24px; border-radius:50%; background:linear-gradient(135deg,#ffd84a,#ff9d1f); box-shadow:0 0 0 5px rgba(255,216,74,.18); }.award-line strong { color:#fffdf5; font-size:39px; font-weight:850; line-height:1.28; text-shadow:0 2px 0 #740006,0 5px 13px rgba(55,0,4,.58); }.award-line i { color:#ffe263; font-style:normal; font-weight:900; text-shadow:0 2px 0 #780006,0 5px 13px rgba(55,0,4,.58); }.award-line em { color:#fffdf5; font-style:normal; font-weight:800; }
 .award-panel { position:absolute; z-index:3; top:1120px; right:64px; left:64px; height:360px; display:grid; grid-template-columns:1.02fr .98fr; gap:20px; }
 .award-table { padding:16px 17px; border:1px solid rgba(255,255,255,.18); border-radius:14px; color:#eaf3ff; background:rgba(6,24,38,.72); box-shadow:0 20px 46px rgba(0,0,0,.3); overflow:hidden; }.award-table-head { display:flex; justify-content:space-between; align-items:baseline; padding-bottom:9px; border-bottom:2px solid var(--accent); color:#ffe06b; }.award-table-head b { font-size:25px; font-weight:900; }.award-table-head span { color:rgba(255,255,255,.6); font-size:16px; }
 .award-table-row { display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:4px; padding:6px 4px; border-bottom:1px solid rgba(255,255,255,.08); color:#fff; font-size:16px; font-weight:700; }.award-table-row span:first-child { text-align:left; }.award-table-row span { text-align:center; }.award-table-row--header { color:#8ee0ff; font-weight:860; font-size:17px; }
 .award-table--img { padding:0; display:block; background:#fff; border:1px solid #d7d7cf; border-radius:10px; }.award-table--img img { display:block; width:100%; height:100%; object-fit:contain; }
-.award-cert { display:grid; gap:18px; align-content:center; }.award-cert-frame { height:170px; border:6px solid #fff; border-radius:4px; background:#eef3f2; box-shadow:0 15px 0 rgba(0,32,20,.25); overflow:hidden; }.award-cert-inner { width:100%; height:100%; }.award-cert-inner--a { transform:rotate(-2.4deg) scale(1.04); }.award-cert-inner--b { transform:rotate(1.6deg) scale(1.04); }
-.award-note { position:absolute; z-index:3; top:1530px; left:70px; right:70px; color:#ffe28a; font-size:30px; font-weight:820; letter-spacing:.02em; text-shadow:0 2px 0 rgba(0,0,0,.34); }
+.award-cert { display:grid; gap:18px; align-content:center; }.award-cert-frame { height:170px; border:6px solid #fff; border-radius:4px; background:#eef3f2; box-shadow:0 15px 0 rgba(0,32,20,.25); overflow:hidden; }.award-cert-inner { width:100%; height:100%; }.award-cert-inner img { display:block; width:100%; height:100%; object-fit:cover; }.award-cert-inner--a { transform:rotate(-2.4deg) scale(1.04); }.award-cert-inner--b { transform:rotate(1.6deg) scale(1.04); }
+.award-note { position:absolute; z-index:3; top:1530px; left:70px; right:70px; color:#ffe99e; font-size:30px; font-weight:820; letter-spacing:.02em; text-shadow:0 2px 0 #700006,0 5px 14px rgba(55,0,4,.58); }
 .award-cta { position:absolute; z-index:8; right:58px; bottom:64px; left:58px; min-height:214px; padding:26px 32px; border:3px solid #ffd84a; border-radius:16px; color:#fff6c8; background:linear-gradient(110deg,rgba(60,8,8,.96),rgba(146,12,20,.98)); box-shadow:0 22px 56px rgba(30,0,0,.4), inset 0 0 30px rgba(255,216,74,.12); display:flex; flex-direction:column; justify-content:center; gap:8px; }.award-cta-copy { display:flex; align-items:baseline; gap:14px; }.award-cta-copy span { font-size:36px; font-weight:850; letter-spacing:.06em; }.award-cta-copy strong { color:#ffe158; font-size:74px; font-weight:950; letter-spacing:.02em; text-shadow:0 3px 0 #7d050c; }.award-cta p { color:#ffefb6; font-size:25px; font-weight:720; }
+@keyframes awardGlitter { 0%,100% { opacity:.46; transform:translate3d(0,0,0); } 50% { opacity:.92; transform:translate3d(-12px,-20px,0); } }
 
 /* 编辑器 */
 .editor-toggle { position:fixed; z-index:20; top:18px; left:18px; padding:11px 15px; border:1px solid rgba(255,255,255,.2); border-radius:9px; color:#f9f8f1; background:rgba(8,18,47,.94); font:650 13px var(--ui); cursor:pointer; }
@@ -1113,6 +1121,8 @@ function layoutLabel(id, kind = "text") {
     selling: "宣传卖点",
     account: "账号信息",
     table: "评分表示例卡",
+    certificateA: "长方形图片框 1",
+    certificateB: "长方形图片框 2",
     cta: "结尾引导",
   };
   if (simpleLabels[id]) return simpleLabels[id];
@@ -1122,11 +1132,11 @@ function layoutLabel(id, kind = "text") {
 }
 
 function layerDisplayHint(id, kind) {
-  if (id === "selling") return "可拖拽移动，拖动滑块改字号";
-  if (id === "account") return "账号署名文字，可移动与缩放";
-  if (kind === "media") return "拖动移动；拖动右下角小方块缩放图片框";
-  if (kind === "text") return "直接拖拽移动；字号在下方调整";
-  return "拖拽移动，右侧小方块缩放";
+  if (id === "selling") return "可拖拽移动；滚轮或右下角手柄可改字号";
+  if (id === "account") return "账号署名文字；滚轮缩放或拖动右下角手柄改字号";
+  if (kind === "media") return "拖动移动；滚轮等比缩放，或拖动右下角手柄拉伸图片框";
+  if (kind === "text") return "直接拖拽移动；滚轮缩放，或拖动右下角手柄改字号";
+  return "滚轮缩放，右下角手柄可拖动调整大小";
 }
 
 function mediaShake(time) {
@@ -1478,12 +1488,32 @@ function AwardList({ data, time, start = 1.3 }) {
   </div>;
 }
 
+function awardImpactStyle(time) {
+  const appear = Easing.easeOutExpo(between(time, 0.035, 0.24));
+  const settle = Easing.easeOutCubic(between(time, 0.18, 0.86));
+  return {
+    opacity: appear,
+    transform: `scale(${1.16 - settle * 0.16})`,
+    filter: `brightness(${2.25 - settle * 1.18}) saturate(${1.34 - settle * 0.12})`,
+  };
+}
+
+function awardFlashStyle(time) {
+  const flashIn = Easing.easeOutQuad(between(time, 0.028, 0.075));
+  const flashOut = Easing.easeInQuad(between(time, 0.075, 0.28));
+  return { opacity: flashIn * (1 - flashOut) };
+}
+
 function AwardTemplate({ data }) {
   const time = useTime();
   const { overrides } = useLayoutState();
-  const certData = { ...data, images: { ...data.images, certificate: data.images.certificate || DEFAULT_AWARD_CERT } };
+  const certificateImage = data.images.certificate || DEFAULT_AWARD_CERT;
   return <main className="video-canvas theme-award" data-screen-label={`荣誉证书墙 · 00:${String(Math.floor(time)).padStart(2, "0")}`} style={{ "--brand": data.brandPrimary, "--accent": data.brandSecondary }}>
-    <div className="award-blob award-blob--a"></div><div className="award-blob award-blob--b"></div><div className="award-grid"></div><div className="award-rays"></div><div className="award-veil"></div>
+    <div className="award-impact" style={awardImpactStyle(time)}>
+      <div className="award-ribbon award-ribbon--top"></div><div className="award-ribbon award-ribbon--middle"></div><div className="award-ribbon award-ribbon--bottom"></div>
+      <div className="award-silk-highlight award-silk-highlight--a"></div><div className="award-silk-highlight award-silk-highlight--b"></div><div className="award-glitter"></div>
+    </div>
+    <div className="award-flash" style={awardFlashStyle(time)}></div><div className="award-veil"></div>
     <div className="award-account" data-edit-layer="account" data-edit-kind="text" style={mergeLayerStyle(reveal(time, 0, 0.4, 0, -18), overrides.account)}>{data.accountName}<span>赛事资料</span></div>
     <header className="award-title">
       <span className="award-kicker" style={reveal(time, 0.16, 0.5, 0, -14)}>班主任提醒 · 家长请查收</span>
@@ -1495,8 +1525,8 @@ function AwardTemplate({ data }) {
     <section className="award-panel">
       <div className="award-table award-table--img" data-edit-layer="table" data-edit-kind="media" style={mergeLayerStyle(reveal(time, 1.9, 2.5, 0, 50), overrides.table)}><img src={DEFAULT_AWARD_TABLE} alt="国选评分标准"></img></div>
       <div className="award-cert">
-        <div className="award-cert-frame award-cert-frame--a" style={reveal(time, 2.12, 2.72, 58, 0)}><div className="award-cert-inner award-cert-inner--a"><Media data={certData} kind="certificate" fit="contain"></Media></div></div>
-        <div className="award-cert-frame award-cert-frame--b" style={reveal(time, 2.42, 3.02, 58, 0)}><div className="award-cert-inner award-cert-inner--b"><Media data={certData} kind="certificate" fit="contain"></Media></div></div>
+        <div className="award-cert-frame award-cert-frame--a" data-edit-layer="certificateA" data-edit-kind="media" style={mergeLayerStyle(reveal(time, 2.12, 2.72, 58, 0), overrides.certificateA)}><div className="award-cert-inner award-cert-inner--a"><img src={certificateImage} alt="长方形图片框 1"></img></div></div>
+        <div className="award-cert-frame award-cert-frame--b" data-edit-layer="certificateB" data-edit-kind="media" style={mergeLayerStyle(reveal(time, 2.42, 3.02, 58, 0), overrides.certificateB)}><div className="award-cert-inner award-cert-inner--b"><img src={certificateImage} alt="长方形图片框 2"></img></div></div>
       </div>
     </section>
     <div className="award-note" style={reveal(time, 3.4, 3.9, 0, 20)}>普娃也可以获奖的赛事，家长一定要重视</div>
@@ -1597,8 +1627,38 @@ function LayoutEditor({ onClose }) {
       window.addEventListener("pointerup", onUp);
     };
     window.addEventListener("pointerdown", onPointerDown);
+
+    const onWheel = (event) => {
+      if (!stageEl || !stageEl.contains(event.target)) return;
+      const node = event.target.closest ? event.target.closest("[data-edit-layer]") : null;
+      if (!node || !stageEl.contains(node)) return;
+      event.preventDefault();
+      const meta = {
+        id: node.getAttribute("data-edit-layer"),
+        kind: node.getAttribute("data-edit-kind") || "text",
+      };
+      setActiveMeta(meta);
+      const current = overridesRef.current[meta.id] || {};
+      if (meta.kind === "media") {
+        const baseWidth = Number.isFinite(current.width) ? current.width : node.offsetWidth;
+        const baseHeight = Number.isFinite(current.height) ? current.height : node.offsetHeight;
+        const factor = event.deltaY < 0 ? 1.06 : 0.94;
+        updateLayer(meta.id, {
+          width: clamp(Math.round(baseWidth * factor), 60, EXPORT_WIDTH),
+          height: clamp(Math.round(baseHeight * factor), 60, EXPORT_HEIGHT),
+        });
+      } else {
+        const baseFontSize = Number.isFinite(current.fontSize)
+          ? current.fontSize
+          : parseFloat(window.getComputedStyle(node).fontSize) || 48;
+        const step = event.shiftKey ? 6 : 3;
+        updateLayer(meta.id, { fontSize: clamp(Math.round(baseFontSize + (event.deltaY < 0 ? step : -step)), 14, 180) });
+      }
+    };
+    window.addEventListener("wheel", onWheel, { passive: false });
     return () => {
       window.removeEventListener("pointerdown", onPointerDown);
+      window.removeEventListener("wheel", onWheel);
       window.clearTimeout(rescanTimer);
     };
   }, []);
@@ -1635,7 +1695,7 @@ function LayoutEditor({ onClose }) {
   }, [activeMeta, overrides, time]);
 
   const startResize = (event) => {
-    if (!activeMeta || activeMeta.kind !== "media") return;
+    if (!activeMeta) return;
     event.preventDefault();
     event.stopPropagation();
     const canvas = canvasRef.current;
@@ -1645,17 +1705,25 @@ function LayoutEditor({ onClose }) {
     const current = overridesRef.current[activeMeta.id] || {};
     const startWidth = Number.isFinite(current.width) ? current.width : target.offsetWidth;
     const startHeight = Number.isFinite(current.height) ? current.height : target.offsetHeight;
+    const startFontSize = Number.isFinite(current.fontSize)
+      ? current.fontSize
+      : parseFloat(window.getComputedStyle(target).fontSize) || 48;
     const canvasRect = canvas.getBoundingClientRect();
     const scale = (canvasRect.width / EXPORT_WIDTH) || 1;
     const startX = event.clientX;
     const startY = event.clientY;
     const onMove = (moveEvent) => {
-      const dx = Math.round(startWidth + (moveEvent.clientX - startX) / scale);
-      const dy = Math.round(startHeight + (moveEvent.clientY - startY) / scale);
-      updateLayer(activeMeta.id, {
-        width: clamp(dx, 60, EXPORT_WIDTH),
-        height: clamp(dy, 60, EXPORT_HEIGHT),
-      });
+      if (activeMeta.kind === "media") {
+        const dx = Math.round(startWidth + (moveEvent.clientX - startX) / scale);
+        const dy = Math.round(startHeight + (moveEvent.clientY - startY) / scale);
+        updateLayer(activeMeta.id, {
+          width: clamp(dx, 60, EXPORT_WIDTH),
+          height: clamp(dy, 60, EXPORT_HEIGHT),
+        });
+      } else {
+        const distance = ((moveEvent.clientX - startX) + (moveEvent.clientY - startY)) / (2 * scale);
+        updateLayer(activeMeta.id, { fontSize: clamp(Math.round(startFontSize + distance * 0.18), 14, 180) });
+      }
     };
     const onUp = () => {
       window.removeEventListener("pointermove", onMove);
@@ -1721,14 +1789,14 @@ function LayoutEditor({ onClose }) {
   return <>
     {box && activeMeta && <div className="layer-selection-ring" style={{ left: box.left, top: box.top, width: Math.max(box.width, 8), height: Math.max(box.height, 8) }}>
       <span className="layer-ring-tag">{layoutLabel(activeMeta.id, activeMeta.kind)}</span>
-      {activeMeta.kind === "media" && <span className="layer-resize-handle" onPointerDown={startResize} title="拖动右下角缩放图片框"></span>}
+      <span className="layer-resize-handle" onPointerDown={startResize} title={activeMeta.kind === "media" ? "拖动右下角拉伸图片框" : "拖动右下角调整文字字号"}></span>
     </div>}
     {ReactDOM.createPortal(<aside className="layout-panel" data-html2canvas-ignore="true">
       <div className="layout-heading">
         <div><b>调整排版</b><span>{templateMeta[templateId].name} · 排版只影响当前模板</span></div>
         <button className="layout-close" onClick={onClose}>完成</button>
       </div>
-      <p className="layout-intro">点击画布上的文字或图片框即可选中：拖动文字/图片移动位置；图片框右下角小方块可缩放。</p>
+      <p className="layout-intro">点击画布上的文字或图片框即可选中：拖动可移动位置；鼠标滚轮可缩放；右下角手柄可直接拉大小。</p>
       <div className="layout-layer-list">
         {layers.map((layer) => <button key={layer.id} className={`layout-layer-row${activeMeta && activeMeta.id === layer.id ? " is-active" : ""}`} onClick={() => setActiveMeta(layer)}>
           <b>{layoutLabel(layer.id, layer.kind)}</b><span>{layer.kind === "media" ? "图片框" : "文字"}</span>
